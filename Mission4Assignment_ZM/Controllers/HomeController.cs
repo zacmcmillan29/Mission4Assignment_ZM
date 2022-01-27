@@ -13,9 +13,14 @@ namespace Mission4Assignment_ZM.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //define scope 
+        private MovieAppContext blahContext { get; set; }
+
+        //controller
+        public HomeController(ILogger<HomeController> logger, MovieAppContext someName)
         {
             _logger = logger;
+            blahContext = someName;
         }
 
         public IActionResult Index()
@@ -23,6 +28,24 @@ namespace Mission4Assignment_ZM.Controllers
             return View();
         }
 
+        public IActionResult Podcasts()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddMovie()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMovie (MovieAdd ma)
+        {
+            blahContext.Add(ma);
+            blahContext.SaveChanges();
+            return View("Confirmation", ma);
+        }
         public IActionResult Privacy()
         {
             return View();

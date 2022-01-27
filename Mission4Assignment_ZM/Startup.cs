@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mission4Assignment_ZM.Models;
 
 namespace Mission4Assignment_ZM
 {
@@ -24,6 +26,12 @@ namespace Mission4Assignment_ZM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MovieAppContext>(options =>
+            {
+                //options.UseSqlite(Configuration["ConnectionStrings:SickConnection"]);
+                options.UseSqlite(Configuration.GetConnectionString("SickConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

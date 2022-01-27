@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Add Movie";
+}
+
+@model Mission4Assignment_ZM.Models.MovieAdd
+
+<h1>Add a movie here!</h1>
+
+
+<div>
+    <form method="post">
+        <label asp-for="Title">Movie Name:</label>
+        <input asp-for="Title" required/>
+        <br />
+
+        <label asp-for="Category">Category:</label>
+        <input asp-for="Category" required/>
+
+        <br />
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" required/>
+
+        <br />
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director" required/>
+
+        <br />
+
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating" required>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+
+        <br />
+
+        <label asp-for="Edited">Edited?:</label>
+        <select asp-for="Edited">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+
+        <br />
+
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" />
+
+        <br />
+
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" maxlength="25" />
+
+        <br />
+
+        <button type="submit">Add now!</button>
+    </form>
+</div>

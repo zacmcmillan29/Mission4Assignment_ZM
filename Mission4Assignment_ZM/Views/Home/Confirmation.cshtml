@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Movie Submitted";
+}
+
+@model Mission4Assignment_ZM.Models.MovieAdd
+
+
+@if (Model.Category == "VHS")
+{
+    <h2>WOW! You still have a VHS? Impressive!</h2>
+    <br />
+    <p>@Model.Title has been added to the movie collection! @Model.Title is a great movie!</p>
+
+}
+else
+{
+    <h2>@Model.Title has been added to the movie collection! @Model.Title is a great movie!</h2>
+}
